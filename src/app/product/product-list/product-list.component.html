@@ -1,1 +1,9 @@
-<p>product-list works!</p>
+<div *ngFor="let p of products">
+  <mat-card class="product-card">
+    <img mat-card-image src="{{ p.image_url }}" alt="{{ p.name }}" />
+    <mat-card-title>{{ p.name }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ p.price | currency : "USD" }}
+    </mat-card-subtitle>
+  </mat-card>
+</div>
