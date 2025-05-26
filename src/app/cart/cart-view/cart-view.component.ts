@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { CartService } from '../cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cart-view',
@@ -10,7 +11,10 @@ import { CartService } from '../cart.service';
 export class CartViewComponent implements OnInit {
   cartItems: Product[] = [];
   totalPrice: number = 0;
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private snackBar: MatSnackBar
+  ) {}
   ngOnInit() {
     this.cartService.getCartItems().subscribe((items: Product[]) => {
       this.cartItems = items;
@@ -31,7 +35,9 @@ export class CartViewComponent implements OnInit {
     this.cartService.checkout(this.cartItems).subscribe((msg) => {
       this.cartItems = [];
       this.totalPrice = 0;
-      alert(msg);
+      this.snackBar.open(msg, 'Close', {
+        duration: 3000,
+      });
     });
   }
 }
