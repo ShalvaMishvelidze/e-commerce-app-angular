@@ -1,10 +1,21 @@
 <h2 class="text-[30px] leading-[36px]">Our latest collection</h2>
 
-<mat-form-field class="w-full">
-  <input matInput (keyup)="applyFilter($event)" placeholder="Search" />
-</mat-form-field>
+<div class="flex flex-col sm:flex-row sm:gap-[20px]">
+  <mat-form-field class="w-full">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" />
+  </mat-form-field>
+  <mat-form-field class="w-full sm:w-[300px]">
+    <mat-select
+      (selectionChange)="sortProducts($event.value)"
+      placeholder="Sort"
+    >
+      <mat-option value="asc">Price: Low to High</mat-option>
+      <mat-option value="desc">Price: High to Low</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
-<div class="flex flex-wrap justify-center sm:justify-between gap-[50px]">
+<div class="flex flex-wrap justify-center gap-[50px]">
   <div
     class="max-w-[200px] w-full hover:scale-105 cursor-pointer transition-scale duration-300 rounded-[10px]"
     *ngFor="let p of filteredProducts"
