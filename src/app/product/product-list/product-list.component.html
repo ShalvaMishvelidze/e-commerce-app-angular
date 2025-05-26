@@ -1,8 +1,13 @@
 <h2 class="text-[30px] leading-[36px]">Our latest collection</h2>
+
+<mat-form-field class="w-full">
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" />
+</mat-form-field>
+
 <div class="flex flex-wrap justify-center sm:justify-between gap-[50px]">
   <div
     class="max-w-[200px] w-full hover:scale-105 cursor-pointer transition-scale duration-300 rounded-[10px]"
-    *ngFor="let p of products"
+    *ngFor="let p of filteredProducts"
   >
     <mat-card
       (click)="addToCart(p)"
