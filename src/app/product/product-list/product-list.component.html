@@ -4,7 +4,10 @@
     class="max-w-[200px] w-full hover:scale-105 cursor-pointer transition-scale duration-300 rounded-[10px]"
     *ngFor="let p of products"
   >
-    <mat-card class="h-[250px] flex flex-col justify-between w-full">
+    <mat-card
+      (click)="addToCart(p)"
+      class="h-[250px] flex flex-col justify-between w-full"
+    >
       <img
         mat-card-image
         class="h-1/2 w-full object-cover"
