@@ -27,4 +27,11 @@ export class CartViewComponent implements OnInit {
       this.totalPrice = 0;
     });
   }
+  checkout() {
+    this.cartService.checkout(this.cartItems).subscribe((msg) => {
+      this.cartItems = [];
+      this.totalPrice = 0;
+      alert(msg);
+    });
+  }
 }
