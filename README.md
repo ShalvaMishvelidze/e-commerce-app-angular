@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
+## Project API
+
+[https://github.com/ShalvaMishvelidze/api-for-angular](https://github.com/ShalvaMishvelidze/api-for-angular)
+
+Make sure API is running before starting the dev server.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
